@@ -1,0 +1,57 @@
+Body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#navColor {
+    color: #f0f8ff;
+}
+
+.container {
+    margin-top: auto;
+    padding: 16px;
+}
+  
+.form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="tel"],
+    .form-group input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-group .error-message {
+    color: red;
+    font-size: 14px;
+}
+
+.form-group .success-message {
+    color: green;
+    font-size: 14px;
+}
+
+.form-group input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}

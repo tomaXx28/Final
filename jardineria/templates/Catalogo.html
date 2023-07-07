@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogo</title>
+
+    {% load bootstrap5 %}
+    {% load static %}
+    {% bootstrap_css%}
+    {% bootstrap_javascript%}   
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="{% static 'css/compra.css' %}">
+    <script src="{% static 'js/app.js'%}"></script>
+
+</head>
+
+<body>
+    <header>
+        <h1>Sección de Compra</h1>
+    </header>
+    <!-- CONTENEDOR DE ELEMENTOS -->
+    <section class="contenedor">
+        <div class="contenedor-items">
+            <div class="item">
+                <span class="titulo-item">Macetero pequeño</span>
+                <img src="{% static 'img/macetero-pequeño.jpg' %}" class="img-item" alt="" width="30" height="210">
+                <span class="precio-item">$990</span>
+                <button class="boton-item">Agregar al Carro</button>
+            </div>
+
+            <div class="item">
+                <span class="titulo-item">Macetero Mediano</span>
+                <img src="{% static 'img/macetero-mediano.jpg' %}" class="img-item" alt="" width="30" height="210">
+                <span class="precio-item">$2000</span>
+                <button class="boton-item">Agregar al Carro</button>
+            </div>
+
+            <div class="item">
+                <span class="titulo-item">Macetero Grande</span>
+                <img src="{% static 'img/macetero-grande.jpg' %}" class="img-item" alt="" width="30" height="210">
+                <span class="precio-item">$4000</span>
+                <button class="boton-item">Agregar al Carro</button>
+            </div>
+
+            <div class="item">
+                <span class="titulo-item">Semillas de Manzano (20 semillas)</span>
+                <img src="{% static 'img/semillas-manzano.jpg' %}" class="img-item" alt="" width="30" height="210">
+                <span class="precio-item">$5000 </span>
+                <button class="boton-item">Agregar al Carro</button>
+            </div>
+
+            <div class="item">
+                <span class="titulo-item">Bonsai</span>
+                <img src="{% static 'img/bonsai.jpg' %}" class="img-item" alt="" width="30" height="210">
+                <span class="precio-item">$100000</span>
+                <button class="boton-item">Agregar al Carro</button>
+            </div>
+
+            <div class="item">
+                <span class="titulo-item">Rastrillo de jardineria</span>
+                <img src="{% static 'img/rastrillo.jpg' %}" class="img-item" alt="" width="30" height="210">
+                <span class="precio-item">$3990</span>
+                <button class="boton-item">Agregar al Carro</button>
+            </div>
+
+            <div class="item">
+                <span class="titulo-item">Guantes de jardineria</span>
+                <img src="{% static 'img/guantes-jardineria.jpg' %}" class="img-item" alt="" width="30" height="210">
+                <span class="precio-item">$1990</span>
+                <button class="boton-item">Agregar al Carro</button>
+            </div>
+
+            <div class="item">
+                <span class="titulo-item">Regadera</span>
+                <img src="{% static 'img/regadera.jpg' %}" class="img-item" alt="" width="30" height="210">
+                <span class="precio-item">$3490</span>
+                <button class="boton-item">Agregar al Carro</button>
+            </div>            
+        </div>
+
+        <!-- CARRITO DE COMPRAS -->
+
+
+        <div class="carrito" id="carrito"> 
+
+            <div class="header-carrito">
+                <h2>Tu Carrito</h2>
+            </div>
+
+            <div class="carrito-items">
+                <!--
+                <div class="carrito-item">
+
+                    <img src="img/compra/carne.jpg" alt="" width="80px">
+
+                    <div class="carrito-item-detalles">
+                        <span class="carrito-item-titulo">Alimento de Carne</span>
+                        <div class="selector-cantidad">
+                            <i class="fa-solid fa-minus restar-cantidad"></i>
+                            <input type="text" value="1" class="carrito-item-cantidad" disabled>
+                            <i class="fa-solid fa-plus sumar-cantidad"></i>
+                        </div>
+                        <span class="carrito-item-precio">$20.000</span>
+                    </div>
+                    <span class="btn-eliminar">
+                        <i class="fa-solid fa-trash"></i>
+                    </span>
+                </div>
+
+                <div class="carrito-item">
+                    <img src="img/compra/desparasitante.jpg" alt="" width="80px">
+                    <div class="carrito-item-detalles">
+                        <span class="carrito-item-titulo">Desparasitante de perro</span>
+                        <div class="selector-cantidad">
+                            <i class="fa-solid fa-minus restar-cantidad"></i>
+                            <input type="text" value="2" class="carrito-item-cantidad" disabled>
+                            <i class="fa-solid fa-plus sumar-cantidad"></i>
+                        </div>
+                        <span class="carrito-item-precio">$26.000</span>
+                    </div>
+                    <button class="btn-eliminar">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div>
+                -->
+            </div>
+            <div class="carrito-total">
+                <div class="fila">
+                    <strong>Tu Total </strong>
+                    <span class="carrito-precio-total">$0</span>
+                </div>
+                <button class="btn-pagar">Pagar <i class="fa-solid fa-bag-shopping"></i></button>
+            </div>
+        </div>
+
+        
+
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hogares Verdes</title>
+    {% load bootstrap5 %}
+    {% load static %}
+    {% bootstrap_css%}
+    {% bootstrap_javascript%}          
+    
+    <!--Bootstrap -->     
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+        
+    
+        <link rel="stylesheet" href="{% static 'css/ListaUser.css' %}">     
+  
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-success">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html" id="navColor">Hogares Verdes</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html" id="navColor">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Nosotros.html" id="navColor">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Catalogo.html" id="navColor">Catalogo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Pedidos" id="navColor">Pedidos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 p-5 mt-3 mx-auto text-center table-responsive">
+                
+                <h1>Lista de Usuarios</h1><br>
+                {% if request.session.nombreUsuario%}
+                <hr>
+                <div class='h2 fw-bold mb-3'>
+                    Bienvenido {{request.session.nombreUsuario}} <br>
+                </div>
+                {% endif%}
+                <a href="{% url 'userAdd' %}">
+                    <button type="button" class="btn btn-primary">Agregar</button>
+                </a>
+                <a href="{% url 'crudTipo' %}">
+                    <button type="button" class="btn btn-secondary">Ver Tipos de Usuario</button>
+                </a>
+                <a href="{% url 'crudSuscripciones' %}">
+                    <button type="button" class="btn btn-warning">Ver Suscripciones</button>
+                </a>
+                <a href="{% url 'logout' %}">
+                    <button type="button" class="btn btn-danger">Desconectar</button>
+                </a>
+                <div id="idMensajes">
+                    {% if mensaje %}
+                    {{mensaje}}
+                    {% endif%}
+                </div>
+
+                <table class="table table-dark table-striped mt-3">
+                    {% if usuario %}
+                    <thead>
+                        <th>Rut</th>
+                        <th>Nombre Completo</th>
+                        <th>Correo</th>
+                        <th>Modificar</th>
+                        <th>Eliminar</th>
+                    </thead>
+                    <tbody>
+                        {% for user in usuario %}
+                        <tr>
+                            <td>{{user.rut}}</td>
+                            <td>{{user.nombre}} {{user.appPaterno}} {{user.appMaterno}}</td>
+                            <td>{{user.correo}}</td>
+                            <td><a href="{% url 'userEdit' pk=user.rut%}">
+                                <button type="button" class="btn btn-primary">Modificar</button></a>
+                            </td>
+                            <td><a href="{% url 'userDel' pk=user.rut%}">
+                                <button type="button" class="btn btn-danger">Eliminar</button></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    {% endif %}
+                </table>
+            </div>
+        </div>
+    </div>
+    <hr>
+    
+</body>
+
+</html>
